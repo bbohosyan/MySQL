@@ -8,3 +8,6 @@ order by rating desc;
 -- 182. Duplicate Emails
 select distinct p1.Email from Person p1
 where (select count(p2.Id) from Person p2 where p2.Email = p1.Email having count(p2.Id) > 1);
+-- 175. Combine Two Tables
+select p.FirstName, p.LastName, a.City, a.State from Person p
+left join Address a on p.PersonId = a.PersonId;
