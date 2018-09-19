@@ -11,3 +11,7 @@ where (select count(p2.Id) from Person p2 where p2.Email = p1.Email having count
 -- 175. Combine Two Tables
 select p.FirstName, p.LastName, a.City, a.State from Person p
 left join Address a on p.PersonId = a.PersonId;
+-- 181. Employees Earning More Than Their Managers
+select e.Name as Employee from Employee e
+join Employee m on e.ManagerId = m.Id
+where e.Salary > m.Salary;
