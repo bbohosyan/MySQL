@@ -15,3 +15,7 @@ left join Address a on p.PersonId = a.PersonId;
 select e.Name as Employee from Employee e
 join Employee m on e.ManagerId = m.Id
 where e.Salary > m.Salary;
+-- 183. Customers Who Never Order
+select c.Name as Customers from Customers c
+left join Orders o on c.Id = o.CustomerId
+where CustomerId is null;
