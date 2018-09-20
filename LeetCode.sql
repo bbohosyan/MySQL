@@ -19,3 +19,14 @@ where e.Salary > m.Salary;
 select c.Name as Customers from Customers c
 left join Orders o on c.Id = o.CustomerId
 where CustomerId is null;
+-- 627. Swap Salary
+UPDATE salary SET sex = CASE sex 
+                          WHEN 'f' THEN 'm' 
+                          WHEN 'm' THEN 'f' 
+                        END;
+-- 596. Classes More Than 5 Students
+select class from(
+select class, count(student) from (
+select distinct c1.student, c1.class from courses c1) q
+group by class
+having count(student) >= 5) w;
