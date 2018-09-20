@@ -30,3 +30,7 @@ select class, count(student) from (
 select distinct c1.student, c1.class from courses c1) q
 group by class
 having count(student) >= 5) w;
+-- 197. Rising Temperature
+select w1.Id from Weather w1
+join Weather w2 on DATEDIFF(w1.RecordDate, w2.RecordDate) = 1
+where w1.Temperature > w2.Temperature;
