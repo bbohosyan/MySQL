@@ -34,3 +34,9 @@ having count(student) >= 5) w;
 select w1.Id from Weather w1
 join Weather w2 on DATEDIFF(w1.RecordDate, w2.RecordDate) = 1
 where w1.Temperature > w2.Temperature;
+-- 196. Delete Duplicate Emails
+DELETE p1 FROM Person p1,
+    Person p2
+WHERE
+    p1.Email = p2.Email AND p1.Id > p2.Id
+    
