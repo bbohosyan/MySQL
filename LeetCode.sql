@@ -38,5 +38,8 @@ where w1.Temperature > w2.Temperature;
 DELETE p1 FROM Person p1,
     Person p2
 WHERE
-    p1.Email = p2.Email AND p1.Id > p2.Id
+    p1.Email = p2.Email AND p1.Id > p2.Id;
+-- 176. Second Highest Salary
+select if(count(SecondHighestSalary) = 0, NULL, SecondHighestSalary) as SecondHighestSalary from(
+select distinct ifnull(Salary, NULL) as SecondHighestSalary from Employee offset order by Salary desc limit 1, 1) q;
     
